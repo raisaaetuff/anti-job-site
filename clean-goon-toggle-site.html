@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why You Shouldn't Get a Job & Just Goon</title>
+<style>
+  /* Reset and basics */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  header {
+    max-width: 720px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+  }
+  header h1 {
+    font-weight: 600;
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s forwards;
+  }
+  header p {
+    color: #7f8c8d;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s forwards;
+    animation-delay: 0.3s;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+  }
+  li {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #34495e;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+  }
+  li strong {
+    color: #2980b9;
+  }
+  button {
+    background-color: #2980b9;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    margin: 1rem auto 2rem auto;
+    box-shadow: 0 4px 8px rgba(41, 128, 185, 0.4);
+    transition: background-color 0.3s ease, transform 0.15s ease;
+    user-select: none;
+  }
+  button:hover {
+    background-color: #1c5980;
+    transform: scale(1.05);
+  }
+  footer {
+    margin-top: auto;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #bdc3c7;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="title">Why You Shouldn't Get a Job & Just Goon</h1>
+  <p id="subtitle">A calm, thoughtful look at why stepping off the 9-to-5 treadmill can be a path to freedom and fulfillment.</p>
+</header>
+
+<main>
+  <ul id="points">
+    <li style="animation-delay: 0.1s;"><strong>Design Your Own Day:</strong> Freedom to decide when to rest, work, or play without clocking in or out.</li>
+    <li style="animation-delay: 0.3s;"><strong>Escape Stress:</strong> Avoid toxic workplaces and the pressure of deadlines that drain your mental energy.</li>
+    <li style="animation-delay: 0.5s;"><strong>Follow Your Passions:</strong> Time to explore hobbies and skills that bring joy and meaning beyond a paycheck.</li>
+    <li style="animation-delay: 0.7s;"><strong>Build Meaningful Connections:</strong> More time for friends, family, and communities you truly care about.</li>
+    <li style="animation-delay: 0.9s;"><strong>Prioritize Self-Care:</strong> Less burnout, more sleep, and the space to heal and recharge.</li>
+  </ul>
+</main>
+
+<button id="toggleBtn">Show Pro-Goon Side</button>
+
+<footer>
+  © 2025 The Art of Gooning
+</footer>
+
+<script>
+  const toggleBtn = document.getElementById('toggleBtn');
+  const title = document.getElementById('title');
+  const subtitle = document.getElementById('subtitle');
+  const points = document.getElementById('points');
+  let showingProGoon = false;
+
+  const antiJob = {
+    title: "Why You Shouldn't Get a Job & Just Goon",
+    subtitle: "A calm, thoughtful look at why stepping off the 9-to-5 treadmill can be a path to freedom and fulfillment.",
+    points: [
+      "Design Your Own Day: Freedom to decide when to rest, work, or play without clocking in or out.",
+      "Escape Stress: Avoid toxic workplaces and the pressure of deadlines that drain your mental energy.",
+      "Follow Your Passions: Time to explore hobbies and skills that bring joy and meaning beyond a paycheck.",
+      "Build Meaningful Connections: More time for friends, family, and communities you truly care about.",
+      "Prioritize Self-Care: Less burnout, more sleep, and the space to heal and recharge."
+    ]
+  };
+
+  const proGoon = {
+    title: "Pro-Goon: Why Gooning is the Future",
+    subtitle: "Gooning is a mindful lifestyle choice centered on well-being, creativity, and freedom.",
+    points: [
+      "Mindfulness & Mental Health: Gooning promotes presence and calm, reducing anxiety and stress.",
+      "Better Work-Life Balance: Sustainable rhythms where work fits around your life, not vice versa.",
+      "Creativity Unleashed: Tap into deeper creative flow states often stifled by traditional jobs.",
+      "Community and Connection: Build supportive communities beyond consumerism and corporate culture.",
+      "Environmental Awareness: Embrace minimalism and sustainability, reducing waste and consumption."
+    ]
+  };
+
+  function animateItems() {
+    // Animate all list items with staggered delay
+    const items = points.querySelectorAll('li');
+    items.forEach((li, i) => {
+      li.style.opacity = 0;
+      li.style.animation = `fadeIn 0.5s forwards`;
+      li.style.animationDelay = `${0.1 + i * 0.2}s`;
+    });
+  }
+
+  function updateContent(content) {
+    // Fade out then update text, then fade in
+    points.style.opacity = '0';
+    title.style.opacity = '0';
+    subtitle.style.opacity = '0';
+
+    setTimeout(() => {
+      title.textContent = content.title;
+      subtitle.textContent = content.subtitle;
+
+      // Clear list and add new items
+      points.innerHTML = '';
+      content.points.forEach(text => {
+        const li = document.createElement('li');
+        const [strongPart, ...rest] = text.split(':');
+        li.innerHTML = `<strong>${strongPart}:</strong> ${rest.join(':').trim()}`;
+        points.appendChild(li);
+      });
+
+      // Fade in header and list
+      title.style.animation = 'fadeInUp 0.6s forwards';
+      subtitle.style.animation = 'fadeInUp 0.6s forwards';
+      subtitle.style.animationDelay = '0.3s';
+
+      points.style.animation = 'fadeInUp 0.6s forwards';
+
+      animateItems();
+    }, 400);
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    if (showingProGoon) {
+      updateContent(antiJob);
+      toggleBtn.textContent = "Show Pro-Goon Side";
+    } else {
+      updateContent(proGoon);
+      toggleBtn.textContent = "Show Anti-Job Side";
+    }
+    showingProGoon = !showingProGoon;
+  });
+
+  // Initial animation on load
+  window.onload = () => {
+    title.style.animation = 'fadeInUp 0.6s forwards';
+    subtitle.style.animation = 'fadeInUp 0.6s forwards';
+    subtitle.style.animationDelay = '0.3s';
+    animateItems();
+  };
+</script>
+
+</body>
+</html>
